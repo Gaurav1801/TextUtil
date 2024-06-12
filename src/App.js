@@ -47,9 +47,17 @@ export default function MyApp() {
     })
     setTimeout(() => {
       Setalert(null);
-    }, 2000);
+    }, 5000);
   }
-  function setmodes() {
+  function removec(){
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-success');
+
+  }
+  function setmodes(cls) {
+    removec();
+    document.body.classList.add('bg-'+cls);
     if (mode === "light") {
       setmode("dark");
       document.body.style.backgroundColor = "#343a40"
@@ -64,8 +72,8 @@ export default function MyApp() {
   }
   function gmode() {
     if (cmode === "light") {
-      Setcmode("gray");
-      document.body.style.backgroundColor = "gray"
+      Setcmode("green");
+      document.body.style.backgroundColor = "green"
       document.body.style.color = "black"
     } else {
       Setcmode("light");
@@ -84,11 +92,10 @@ export default function MyApp() {
           <Alert alert={alert} />
           <Switch>
             <Route exact path="/about">
-              <About />
+              <About mode={mode} />
             </Route>
-
             <Route exact path="/">
-              <Text heading="Enter the text below" showalert={showalert} />
+              <Text heading="Enter the text below" showalert={showalert} mode={mode}/>
             </Route>
             <Route exact path="/Form">
               <New />

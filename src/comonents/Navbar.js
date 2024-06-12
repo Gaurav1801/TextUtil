@@ -25,13 +25,17 @@ export default function Navbar(props) {
                     </div>
                     <form class="d-flex flex-end " role="search">
                         {/* <button class="btn btn-primary " type="submit">Search</button> */}
+                        <div className="bg-primary mx-2 mt-1" style={{height:"20px",width:"20px"}} onClick={()=>{props.togglemode("primary")}}></div>
+                        <div className="bg-danger mx-2 mt-1" style={{height:"20px",width:"20px"}} onClick={()=>{props.togglemode("danger")}}></div>
+                        <div className="bg-success mx-2 mt-1" style={{height:"20px",width:"20px"}} onClick={()=>{props.togglemode("success")}}></div>
+
                         <div class={`form-check form-switch text-${props.mode==="light"? "dark":"light"} `}>
                             <input class="form-check-input" type="checkbox" onClick={props.toggle} role="switch" id="flexSwitchCheckDefault" />
                             <label class="form-check-label" htmlFor="flexSwitchCheckDefault">{props.smode} mode</label>
                         </div>
                         
                         <div class={`form-check form-switch text-${props.mode==="light"? "dark":"light"} `}>
-                            <input class="form-check-input" type="checkbox" onClick={props.togglemode} role="switch" id="flexSwitchCheckDefault" />
+                            <input class="form-check-input" type="checkbox" onClick={()=>{props.togglemode(null)}} role="switch" id="flexSwitchCheckDefault" />
                             <label class="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode} mode</label>
                         </div>
                     </form> 
